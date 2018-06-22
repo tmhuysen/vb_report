@@ -1,0 +1,33 @@
+\documentclass[12pt,twoside,a4paper]{book}
+\usepackage[onlytext]{MinionPro}
+\usepackage{microtype}                                                          % Better looking documents "typographical perfection"
+\usepackage[left=3cm, right=3cm]{geometry}		                                % Margins left and right
+\usepackage{hyperref}                                                           % Clickable table of contents in PDFs
+\usepackage{datetime}                                                           % Currenttime
+\usepackage[titletoc,title]{appendix}
+\usepackage{graphicx}                                                           % Import .pdf-files as figure
+\usepackage{subcaption}                                                         % Subfigure
+\usepackage{float}                                                              % float [H]
+\usepackage{physics}                                                            % Physics typesetting: bra-ket
+\usepackage{amsfonts}                                                           % mathfrak
+\usepackage{mathtools}                                                          % dcases, DeclarePairedDelimiter
+\usepackage{amsmath}                                                            % Cases, split
+\usepackage{pdfpages}
+
+\numberwithin{equation}{section}
+\pagenumbering{gobble}
+
+\begin{document}
+
+\clearpage
+\tableofcontents
+
+\onehalfspacing
+
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{main/tobi/butadiene}
+
+\end{document}
