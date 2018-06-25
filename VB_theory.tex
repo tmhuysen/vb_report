@@ -1,18 +1,25 @@
-\documentclass[12pt,twoside,a4paper]{book}
-\usepackage[onlytext]{MinionPro}
+\documentclass[12pt,a4paper]{article}
+\usepackage[english]{babel}
 \usepackage{microtype}                                                          % Better looking documents "typographical perfection"
-\usepackage[left=3cm, right=3cm]{geometry}		                                % Margins left and right
-\usepackage{hyperref}                                                           % Clickable table of contents in PDFs
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}                              % Margins left and right
+\usepackage[hidelinks]{hyperref}                                               % Clickable table of contents in PDFs
 \usepackage{datetime}                                                           % Currenttime
 \usepackage[titletoc,title]{appendix}
-\usepackage{graphicx}                                                           % Import .pdf-files as figure
-\usepackage{subcaption}                                                         % Subfigure
+\usepackage{amssymb,amsmath}                                                       % Import .pdf-files as figure                                                     % Subfigure
+\usepackage[pdftex]{graphicx}
 \usepackage{float}                                                              % float [H]
+\usepackage{textcomp}
+\usepackage{calc} 
+\usepackage{setspace}
 \usepackage{physics}                                                            % Physics typesetting: bra-ket
 \usepackage{amsfonts}                                                           % mathfrak
 \usepackage{mathtools}                                                          % dcases, DeclarePairedDelimiter
 \usepackage{amsmath}                                                            % Cases, split
-\usepackage{pdfpages}
+\usepackage{wrapfig}
+\usepackage{subfig}
+\usepackage{chemmacros}
+\setcounter{MaxMatrixCols}{20}
+
 
 \numberwithin{equation}{section}
 \pagenumbering{gobble}
@@ -28,6 +35,7 @@
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
+\input{main/tobi/theory}
 \input{main/tobi/butadiene}
 
 \end{document}

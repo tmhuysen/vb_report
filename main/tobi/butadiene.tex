@@ -1,33 +1,55 @@
-\documentclass[12pt,twoside,a4paper]{book}
-\usepackage[onlytext]{MinionPro}
-\usepackage{microtype}                                                          % Better looking documents "typographical perfection"
-\usepackage[left=3cm, right=3cm]{geometry}		                                % Margins left and right
-\usepackage{hyperref}                                                           % Clickable table of contents in PDFs
-\usepackage{datetime}                                                           % Currenttime
-\usepackage[titletoc,title]{appendix}
-\usepackage{graphicx}                                                           % Import .pdf-files as figure
-\usepackage{subcaption}                                                         % Subfigure
-\usepackage{float}                                                              % float [H]
-\usepackage{physics}                                                            % Physics typesetting: bra-ket
-\usepackage{amsfonts}                                                           % mathfrak
-\usepackage{mathtools}                                                          % dcases, DeclarePairedDelimiter
-\usepackage{amsmath}                                                            % Cases, split
-\usepackage{pdfpages}
-
-\numberwithin{equation}{section}
-\pagenumbering{gobble}
-
-\begin{document}
-
-\clearpage
-\tableofcontents
-
-\onehalfspacing
+\section{Butadiene}
+\begin{itemize}
+\item $P_z$ Middle carbon = $\phi_1$
+\item  $P_z$  Outer neighbour = $\phi_3$
+\item  $P_z$  Other middle carbon = $\phi_2$
+\item  $P_z$  His neightbour = $\phi_4$
+\end{itemize}
+All ONVs are also appended by a doubly occupied ONV and RHF based basis $\ket{RHF}$ this is omitted for convenience.
+All ONVs use integer $\ket{1}$ instead of $\ket{\phi_1}$. An example of an ONV is $\ket{1_\alpha | 2_\beta}$ left side is always alpha, right side is always beta.
+\subsection{Valence bond states}
+\subsubsection{Covalent wave function}
+\begin{align}
+ \psi_{cov} & = ( \ket{1 | 3}   +  \ket{3 | 1})  \bigotimes  (\ket{2 | 4}   +  \ket{4 | 2} ) \\
+ & = \ket{12 | 34} + \ket{14|23} + \ket{23|14} + \ket{34|12} 
+\end{align}
 
 
-\pagenumbering{arabic}
-\setcounter{page}{1}
+\subsubsection{Radical wave function}
+\begin{align}
+ \psi_{rad} & = ( \ket{1 | 2}   +  \ket{2 | 1})  \bigotimes  (\ket{3 | 4}   +  \ket{4 | 3} ) \\
+ & = \ket{13 | 24} + \ket{14|23} + \ket{23|14} + \ket{24|13} 
+\end{align}
 
-\input{main/tobi/butadiene}
+\subsubsection{other}
 
-\end{document}
+\subsection{Semi-localised orbitals}
+\begin{align}
+ \phi_1'  &= \phi_1 + d_1 \phi_3 \\
+ \phi_3'  &= d_2 \phi_1 + \phi_3 \\
+ \phi_2'  &= \phi_2 + d_3 \phi_4 \\
+ \phi_4'  &= d_4 \phi_2 + \phi_4
+\end{align}
+Replacing $\phi$s by $\phi'$s and rewriting it in terms of $\phi$ again yields the following vb state function:
+\begin{align}
+\psi_{cov}  =& 2(d_2 \ket{1|1} + \ket{1|3} + d_1 d_2 \ket{1|3} + d_1 \ket{3|3}) \bigotimes  \\
+ & 2(d_4 \ket{2|2} + \ket{2|4} + d_3 d_4 \ket{2|4} + d_3 \ket{4|4}) \nonumber  \\
+& \text{omit  constant factors} \nonumber \\
+\psi_{cov}  =& d_2 d_4 \ket{12 | 12}  + d_2 \ket{12|14} + d_2 d_3 d_4 \ket{12|14} + d_2 d_3 \ket{14|14}  \\
+&+ d_4 \ket{12 | 23} + \ket{12|34} + d_3 d_4 \ket{12|34} + d_3 \ket{14|34} \nonumber \\
+&+ d_1 d_2 d_4 \ket{12|23} + d_1 d_2 \ket{12|34} + d_1 d_2 d_3 d_4 \ket{12 |34}  + d_1 d_2 d_3 \ket{14|34} \nonumber \\
+&+ d_1 d_4 \ket{23|23} + d_1 \ket{23|34} + d_1 d_3 d_4 \ket{23|34} + d_1 d_3 \ket{34|34} \nonumber \\
+\psi_{cov}  =& \ket{12|34} + d_1 \ket{23|34} +  d_2 \ket{12|14}  + d_3 \ket{14|34} + d_4 \ket{12 | 13} \\
+&+ d_1 d_2 \ket{12|34} + d_1 d_3 \ket{34|34}  +  d_1 d_4 \ket{23|23} \nonumber  \\
+&+ d_2 d_3 \ket{14|14} + d_2 d_4 \ket{12 | 12} + d_3 d_4 \ket{12|34} \nonumber  \\
+&+ d_1 d_2 d_3 \ket{14|34}  + d_1 d_2 d_4 \ket{12|23} +  d_1 d_3 d_4 \ket{23|34} + d_2 d_3 d_4 \ket{12|14} \nonumber  \\
+&+  d_1 d_2 d_3 d_4 \ket{12 |34}  \nonumber  
+\end{align}
+
+\subsection{Full delocalisation}
+
+In this section we simply take all possible determinants in the 4 $P_z$ orbitals with 2 $\alpha$ and 2 $\beta$ electrons. Every valence bond "state" is now a single determinant. There are ${2 \choose 4} $ alpha and beta possibilities yielding a total of 36 determinants. 
+\begin{align}
+ \psi_{cov} & = ( \ket{1 | 3}   +  \ket{3 | 1})  \bigotimes  (\ket{2 | 4}   +  \ket{4 | 2} ) \\
+ & = \ket{12 | 34} + \ket{14|23} + \ket{23|14} + \ket{34|12} 
+\end{align}

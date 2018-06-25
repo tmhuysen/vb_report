@@ -1,0 +1,53 @@
+\section{Framework}
+Conventions:
+\begin{itemize}
+\item Greek letters $\tau$ and $\sigma$ indicate spin functions.
+\item $\phi$ and lowercase subscript letters ($p,q,r,s$) indicate the non-orthogonal atomic orbitals.  
+\end{itemize}    
+
+Let us define $\hat{a}^\dagger_p$ and $\hat{a}_q$ as elementary creation and annihilation operators of an non-orthogonal spatial basis. 
+Evaluating the anti-commutator on the vacuum state:
+    \begin{align}
+        \ev{\comm*{\hat{a}^\dagger_p}{\hat{a}_q}_+}{\text{vac}} &= \ev{\hat{a}_q \hat{a}^\dagger_p}{\text{vac}} \\
+        &= \braket{\phi_q}{\phi_p} \\
+        &= {S}_{q p} \\
+         \qquad \comm{\hat{a}^\dagger_p}{\hat{a}_q}_+ & = S_{q p} \label{eq:sq_overlap}
+\end{align}
+With spin in the picture the non-relativistic framework allows us to define elementary operators in the non-orthogonal spin orbitals basis as:
+    \begin{align}
+        \comm{\hat{a}_{p\sigma}^\dagger}{\hat{a}_{q \tau}}_+ &= S_{q p} \delta_{\sigma \tau} \\
+        \comm{\hat{a}_{p\sigma}^\dagger}{\hat{a}^\dagger_{q \tau}}_+ &= 0 \\
+        \comm{\hat{a}_{p\sigma}}{\hat{a}_{q \tau}}_+ &= 0 
+    \end{align} 
+
+A valence bond structure can then be expressed as a summation of creation operators on a vacuum state (with $k_{p\sigma}$ 0 if not occupied in the given state and 1 if occupied):
+    \begin{equation} \label{eq:ON_creators_vacuum}
+        \ket{\vb{k}} = \prod_\sigma \prod_p^K (\hat{a}^\dagger_{p\sigma})^{k_{p\sigma}} \ket{\text{vac}} 
+    \end{equation}
+    \begin{equation} \label{eq:ON_creators_vacuum}
+        \psi_{\text{vb}} = \sum_k \ket{\vb{k}} 
+    \end{equation}
+For given valence wave function  we can then write:
+    \begin{equation} \label{eq:ON_creators_vacuum}
+        \Psi_{\text{vb}} = \sum_i c_i \psi_{i}
+    \end{equation}
+
+
+The electronic Hamiltonian in restricted space can then be written as:         
+  \begin{equation}\label{eq:ham_sf}
+          \hat{\mathcal{H}}_\text{elec} =  \sum_{pq}^K h_{pq} \hat{E}_{pq} + \frac{1}{2}  \sum_{pqrs}^K g_{pqrs} \hat{e}_{pqrs}
+ \end{equation}        
+ 
+  Where $\hat{E}_{pq}$ is the singlet one-electron excitation operator:
+        \begin{align}
+            \hat{E}_{pq} &= \hat{a}^\dagger_{p\alpha} \hat{a}_{q\alpha} + \hat{a}^\dagger_{p \beta} \hat{a}_{q \beta} \\
+            &= \hat{E}^\alpha_{pq} + \hat{E}^\beta_{pq} \label{eq:E_pq_alpha_beta} \\
+            &= \sum_\sigma \hat{a}^\dagger_{p \sigma} \hat{a}_{q \sigma} 
+\end{align} 
+
+        And $\hat{e}_{pqrs}$ is a singlet two-electron excitation operator:
+        \begin{align}
+            \hat{e}_{pqrs} &= \hat{E}_{pq} \hat{E}_{rs} - \delta_{qr} \hat{E}_{ps} \\
+            &= \sum_{\sigma \tau} \hat{a}^\dagger_{p \sigma} \hat{a}^\dagger_{r \tau} \hat{a}_{s \tau} \hat{a}_{q \sigma} \label{eq:two_electron_excitation_operator}
+        \end{align}
+        
